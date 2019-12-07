@@ -62,6 +62,27 @@
     </div>
 
     <script src="_framework/blazor.webassembly.js" type="text/javascript"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-auth.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCMubWr-7umPsEbtxj4mSWPR73XI2btP-s",
+            authDomain: "pelaktomascz.firebaseapp.com",
+            databaseURL: "https://pelaktomascz.firebaseio.com",
+            projectId: "pelaktomascz",
+            storageBucket: "pelaktomascz.appspot.com",
+            messagingSenderId: "513570969254",
+            appId: "1:513570969254:web:959c0f39bf5085e8e10667",
+            measurementId: "G-Z91J1C99Y1"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
