@@ -1,0 +1,16 @@
+﻿@page "/login"
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthState
+@inject IJSRuntime JSRuntime
+
+<h3>Login</h3>
+
+<button class="btn btn-primary" @onclick="@LogIn">Log in with github</button>
+
+@code {
+    async void LogIn()
+    {
+        await ((CustomAuthStateProvider)AuthState).LogIn(JSRuntime);
+        NavigationManager.NavigateTo("/");
+    }
+}

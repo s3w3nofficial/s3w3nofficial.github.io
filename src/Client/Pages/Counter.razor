@@ -2,17 +2,16 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @State.Counter</p>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    [CascadingParameter]
+    public AppStateProvider State { get; set; }
 
     private void IncrementCount()
     {
-        currentCount++;
+        State.Counter++;
     }
 }

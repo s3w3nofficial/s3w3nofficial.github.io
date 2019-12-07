@@ -1,0 +1,31 @@
+﻿@inject IJSRuntime JSRuntime
+
+@if (this._hasLoaded)
+{
+    <CascadingValue Value="@this">
+        @ChildContent
+    </CascadingValue>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    public int Counter { get; set; } = 0;
+    public List<Project> Projects { get; set; } = new List<Project>();
+
+    public event Action NotifyProjectsUpdated;
+
+    private bool _hasLoaded = false;
+    protected override void OnInitialized()
+    {
+        this._hasLoaded = true;
+    }
+
+    public async void GetProjects()
+    {
+        this.Projects = await JSRuntime.InvokeAsync<List<Project>>("getAllProjects");
+        //Console.WriteLine(this.Projects.Last().Name);
+        NotifyProjectsUpdated();
+    }
+}
